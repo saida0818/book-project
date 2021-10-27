@@ -34,7 +34,7 @@ BookRouter.delete('/:id', (req, res) => {
 
 BookRouter.post('/', (req, res) => { 
     console.log(`name: ${req.body.title}`) 
-    Book.findOne({ title: req.body.title, release: req.body.release }, async (err, book) => {
+    Book.findOne({ ISBN: req.body.ISBN }, async (err, book) => {
         if(err) throw err; 
         if(!book){
             const newBook = new Book(req.body); 
